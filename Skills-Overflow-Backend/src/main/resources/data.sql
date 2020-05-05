@@ -13,9 +13,9 @@ CREATE TABLE role (
 );
 
 CREATE TABLE user_role (
-  id_role INT FOREIGN KEY,
-  id_user INT FOREIGN KEY,
-);
+    id_user INT FOREIGN KEY,
+    id_role INT FOREIGN KEY,
+  );
 
 INSERT INTO user (user_name, email, password  ,first_name, last_name) VALUES
   ('gicu', 'gicu@yahoo.com', 'gicu10', 'gicu', 'jianu');
