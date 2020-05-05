@@ -1,17 +1,14 @@
 package com.internshipProject.SkillsOverflowBackend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+@Getter(AccessLevel.PUBLIC)
+@Setter(AccessLevel.PUBLIC)
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

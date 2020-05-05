@@ -16,4 +16,11 @@ public class UserService {
         List<User> all = userRepository.findAll();
         return all;
     }
+
+    public  User addUser(User user) {
+        userRepository.saveAndFlush(user);
+        return user;
+    }
+
+
 }
