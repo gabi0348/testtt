@@ -1,26 +1,24 @@
 package com.internshipProject.SkillsOverflowBackend.services;
 
 import com.internshipProject.SkillsOverflowBackend.models.User;
-import com.internshipProject.SkillsOverflowBackend.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
-public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+public interface UserService {
 
-    public List<User> list() {
-        List<User> all = userRepository.findAll();
-        return all;
-    }
+    List<User> list();
+    User addUser(User user);
 
-    public  User addUser(User user) {
-        userRepository.saveAndFlush(user);
-        return user;
-    }
+    User getUserById(Long id);
+
+    void removeUserById(Long id);
+
+    boolean checkForExistingEmailOrUsername(String email, String username);
+
+    boolean validateEmailAndPassword(String email, String password);
+
+    User updateUser(Long id, User user);
+
 
 
 }
