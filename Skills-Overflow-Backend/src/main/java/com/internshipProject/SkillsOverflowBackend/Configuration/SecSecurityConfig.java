@@ -18,7 +18,7 @@ import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
-public class SecSecurityConfig extends WebSecurityConfigurerAdapter  {
+public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -35,7 +35,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter  {
         http
                 .formLogin().loginPage("/index.html")//"http://localhost:3000/login.html")
                 .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/homepage.html",true)
+                .defaultSuccessUrl("/homepage.html", true)
                 //.failureUrl("/index.html?error=true")
                 .permitAll()
                 .and()
@@ -65,9 +65,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter  {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST"));
         configuration.setAllowCredentials(true);
-        //the below three lines will add the relevant CORS response headers
         configuration.addAllowedOrigin("*");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
