@@ -2,7 +2,6 @@ package com.internshipProject.SkillsOverflowBackend.services;
 
 import com.internshipProject.SkillsOverflowBackend.models.User;
 import com.internshipProject.SkillsOverflowBackend.repositories.UserRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +19,11 @@ public class UserServiceImpl implements UserService {
         return all;
     }
 
-    public  User addUser(User user) {
-        if(checkForExistingEmailOrUsername(user.getEmail(), user.getUserName())){
+    public User addUser(User user) {
+        if (checkForExistingEmailOrUsername(user.getEmail(), user.getUserName())) {
             return null;
         } else if (!validateEmailAndPassword(user.getEmail(), user.getPassword()))
-        userRepository.saveAndFlush(user);
+            userRepository.saveAndFlush(user);
         return user;
     }
 
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
-    public User updateUser(Long id, User user){
+    public User updateUser(Long id, User user) {
         User existingUser = userRepository.getOne(id);
         existingUser.setUserName(user.getUserName());
         existingUser.setEmail(user.getEmail());
@@ -50,19 +49,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean checkForExistingEmailOrUsername(String email, String username){
+    public boolean checkForExistingEmailOrUsername(String email, String username) {
         List<User> allUsers = userRepository.findAll();
-        for(User user : allUsers) {
-            if(user.getEmail().equals(email)){
+        for (User user : allUsers) {
+            if (user.getEmail().equals(email)) {
                 return true;
-            } else if (user.getUserName().equals(username)){
+            } else if (user.getUserName().equals(username)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean validateEmailAndPassword(String email, String password){
+    public boolean validateEmailAndPassword(String email, String password) {
         if (email.equals("") || password.equals("")) {
             return false;
         }
@@ -87,8 +86,9 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    public boolean checkForExistingEmailandPassword(String email, String password) {
+        return false;
 
 
-
-
+    }
 }

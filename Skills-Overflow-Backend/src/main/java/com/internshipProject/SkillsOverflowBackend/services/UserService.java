@@ -19,6 +19,7 @@ public interface UserService {
 
     User updateUser(Long id, User user);
 
+    boolean checkForExistingEmailandPassword(String email, String password);
 
 
 }

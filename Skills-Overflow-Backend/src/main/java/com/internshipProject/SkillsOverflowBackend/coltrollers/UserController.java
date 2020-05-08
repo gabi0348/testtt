@@ -41,5 +41,22 @@ public class UserController {
         return userService.updateUser(id, user);
     }
 
+ /*   @PostMapping("/login")
+    @ResponseBody
+    public Boolean loin(@RequestBody User user){
+        return true;
+    }
+
+
+*/
+/*
+    @PostMapping("/login")
+    @ResponseBody
+    public Boolean login(@RequestBody User user) {
+        return userService.checkForExistingEmailandPassword(user.getEmail(),user.getPassword());
+    }
+*/
+
+
 
 }
